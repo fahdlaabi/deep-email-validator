@@ -34,7 +34,7 @@ export async function validate(
   if (options.validateMx) {
     const mx = await getBestMx(domain)
     if (!mx) return createOutput('mx', 'MX record not found')
-    if (mx.exchange.includes('localhost')) return output_1.createOutput('mx', 'MX localhost')
+    if (mx.exchange.includes('localhost')) return createOutput('mx', 'MX localhost')
     if (options.validateSMTP) {
       return checkSMTP(options.sender, email, mx.exchange)
     }
